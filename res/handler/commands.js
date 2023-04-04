@@ -27,21 +27,27 @@ Total question answered : ${res.value}
   //
   // Feedback command
   bot.command("feedback", (ctx) => {
-    ctx.reply("Please provide your feedback:");
-
-    bot.hears(/.*/, (ctx) => {
+    const input = ctx.message.text.split(" ");
+    input.shift();
+    if (input.length == 0) {
+      ctx.reply(
+        "Please provide your feedback after /feedback <Your feedback>\nFor Example: /feedback Thats a very good bot"
+      );
+    } else {
       const { id, username, first_name, last_name } = ctx.from;
-      const feedbackText = ctx.message.text;
+      const feedbackText = input.join(" ");
       const feedback = `
+An user has sent a feedback for your bot
+
 User ID : ${id}
 Username : @${username}
 Full Name : ${first_name} ${last_name}
 Users Feedback : ${feedbackText}
 `;
-      bot.telegram.sendMessage(botOwnerChatId, feedback, keyboardLayout);
+      bot.telegram.sendMessage(botOwnerChatId, feedback);
 
       ctx.reply("Thank you for your feedback!", keyboardLayout);
-    });
+    }
   });
   //
   //
