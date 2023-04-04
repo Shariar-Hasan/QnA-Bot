@@ -57,3 +57,5 @@ bot.on("message", async (ctx) => {
     console.log(e);
   }
 });
+
+bot.launch();
