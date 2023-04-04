@@ -59,3 +59,6 @@ bot.on("message", async (ctx) => {
 });
 
 bot.launch();
+module.exports = (req, res) => {
+  res.end("");
+};
