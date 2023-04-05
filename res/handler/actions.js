@@ -18,10 +18,10 @@ Ask me any question. Don't forget to add a '?' mark at the end
   };
   countapi.get(namespaceForCounter, "rater").then((res) => {
     stats.rating.rater = res.value;
-  });
+  }).catch(e => console.log(e));
   countapi.get(namespaceForCounter, "stars").then((res) => {
     stats.rating.stars = res.value;
-  });
+  }).catch(e => console.log(e));
   const rating = ["0", "1", "2", "3", "4", "5"];
   bot.action(rating, (ctx) => {
     const match = Number(ctx.match[0]);

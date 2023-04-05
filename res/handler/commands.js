@@ -13,13 +13,16 @@ module.exports = (bot) => {
   });
   // About command
   bot.command("about", (ctx) => {
-    countapi.get(namespaceForCounter, "totalAskedQuestion").then((res) => {
-      ctx.reply(`
+    countapi
+      .get(namespaceForCounter, "totalAskedQuestion")
+      .then((res) => {
+        ctx.reply(`
 ${aboutMessage}
 
 Total question answered : ${res.value}
     `);
-    });
+      })
+      .catch((e) => console.log(e));
   });
   //
   //

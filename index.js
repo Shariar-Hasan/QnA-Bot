@@ -42,6 +42,8 @@ actions(bot);
 bot.on("message", async (ctx) => {
   countapi.hit(namespaceForCounter, "totalAskedQuestion").then((res) => {
     console.log(res);
+  }).catch(e => {
+    console.log(e)
   });
   bot.telegram.sendChatAction(ctx.chat.id, "typing");
   let question = ctx.message.text;
