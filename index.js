@@ -40,6 +40,9 @@ actions(bot);
 // **************Question*****************
 
 bot.on("message", async (ctx) => {
+  
+  console.log( ctx.message.text)
+  console.log("first")
   countapi.hit(namespaceForCounter, "totalAskedQuestion").then((res) => {
     console.log(res);
   }).catch(e => {
@@ -55,9 +58,9 @@ bot.on("message", async (ctx) => {
       temperature: gptTemperature,
     });
     ctx.reply(`${res.data.choices[0].text}`);
+    console.log(res.data.choices[0].text)
   } catch (e) {
     console.log(e);
   }
 });
-
 bot.launch();

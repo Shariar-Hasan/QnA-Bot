@@ -8,7 +8,7 @@ const botVersion = version;
 // chat gpt configurations
 const gptTemperature = 1.0;
 const gptMaxTokens = 2048;
-const gptModel = "text-davinci-003";
+const gptModel = "text-davinci-001";
 // ___________________________________________________
 
 // start message
